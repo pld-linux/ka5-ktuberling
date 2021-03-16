@@ -1,15 +1,15 @@
-%define		kdeappsver	19.04.1
+%define		kdeappsver	20.12.3
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		ktuberling
 Summary:	ktuberling
 Name:		ka5-%{kaname}
-Version:	19.04.1
+Version:	20.12.3
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications/Games
-Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	806fbbb67c588a9eefac736df98eb9e0
+Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	32ccee8ef0de4e260d0afc38800bb743
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= 5.11.1
@@ -92,3 +92,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/ktuberling
 %{_datadir}/kxmlgui5/ktuberling
 %{_datadir}/metainfo/org.kde.ktuberling.appdata.xml
+%{_datadir}/qlogging-categories5/ktuberling.categories
