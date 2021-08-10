@@ -48,8 +48,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 KTuberling a simple constructor game suitable for children and adults
 alike. The idea of the game is based around a once popular doll making
-concept. The idea of the game is based around a once popular doll
-making concept.
+concept.
+
+%description -l pl.UTF-8
+KTuberling jest prostą grą konstrukcyjną odpowiednią dla dzieci jak
+i dorosłych. Pomysł gry jest oparty na popularnej grze w ubieranie
+lalek.
 
 %prep
 %setup -q -n %{kaname}-%{version}
