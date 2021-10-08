@@ -1,15 +1,15 @@
-%define		kdeappsver	21.08.1
+%define		kdeappsver	21.08.2
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		ktuberling
 Summary:	ktuberling
 Name:		ka5-%{kaname}
-Version:	21.08.1
+Version:	21.08.2
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications/Games
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	f0e66c94d037e0ca57ad62d4cbd1c582
+# Source0-md5:	3509512e7d61d76f8bf31c7d6fd15362
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= 5.11.1
@@ -43,6 +43,7 @@ BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires:	%{name}-data = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -54,6 +55,19 @@ concept.
 KTuberling jest prostą grą konstrukcyjną odpowiednią dla dzieci jak
 i dorosłych. Pomysł gry jest oparty na popularnej grze w ubieranie
 lalek.
+
+%package data
+Summary:	Data files for %{kaname}
+Summary(pl.UTF-8):	Dane dla %{kaname}
+Group:		X11/Applications/Games
+BuildArch:	noarch
+
+%description data
+Data files for %{kaname}.
+
+%description data -l pl.UTF-8
+Dane dla %{kaname}.
+
 
 %prep
 %setup -q -n %{kaname}-%{version}
@@ -77,9 +91,12 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{kaname}.lang
+%files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ktuberling
+
+%files data  -f %{kaname}.lang
+%defattr(644,root,root,755)
 %{_desktopdir}/org.kde.ktuberling.desktop
 %{_iconsdir}/hicolor/128x128/apps/ktuberling.png
 %{_iconsdir}/hicolor/128x128/mimetypes/application-x-tuberling.png
